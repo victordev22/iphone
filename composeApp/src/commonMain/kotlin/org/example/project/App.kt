@@ -6,11 +6,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import org.example.project.navigation.AppNavigation
-import org.example.project.ui.theme.ControlHTheme
+import org.example.project.ui.theme.Theme
 
 @Composable
 fun App() {
-    ControlHTheme {
+    Theme {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
