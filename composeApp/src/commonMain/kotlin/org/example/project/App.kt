@@ -5,8 +5,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.controlh.navigation.AppNavigation
-import com.example.controlh.ui.theme.ControlHTheme
+import com.example.project.navigation.AppNavigation
+import com.example.project.ui.theme.ControlHTheme
 
 @Composable
 fun App() {

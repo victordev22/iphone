@@ -1,4 +1,4 @@
-package com.example.controlh // Adjust your package name
+package org.example.project // Adjust your package name
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

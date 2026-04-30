@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package com.example.project.view
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.controlh.RetrofitClient
-import com.example.controlh.data.Horas
+import com.example.project.RetrofitClient
+import com.example.project.data.Horas
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable

@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package com.example.project.view
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -41,9 +41,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.controlh.RetrofitClient
-import com.example.controlh.data.Horas
-import com.example.controlh.navigation.AppScreens
+import com.example.project.RetrofitClient
+import com.example.project.data.Horas
+import com.example.project.navigation.AppScreens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package com.example.project.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.controlh.AuthViewModel
-import com.example.controlh.RetrofitClient
-import com.example.controlh.data.UserFull
-import com.example.controlh.data.RoleUpdateRequest
-import com.example.controlh.navigation.AppScreens
+import com.example.project.AuthViewModel
+import com.example.project.RetrofitClient
+import com.example.project.data.UserFull
+import com.example.project.data.RoleUpdateRequest
+import com.example.project.navigation.AppScreens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

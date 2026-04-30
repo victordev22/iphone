@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package com.example.project.view
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.controlh.ControlViewModel
+import com.example.project.ControlViewModel
 
 @Composable
 fun PowerOnOf(viewModel: ControlViewModel = viewModel()) {
