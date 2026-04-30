@@ -1,4 +1,4 @@
-package com.example.project.data
+package org.example.project.data
 
 // A sealed class to represent the outcome of an API call.
 sealed class ApiResult<out T : Any> {

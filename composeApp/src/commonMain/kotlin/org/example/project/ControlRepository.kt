@@ -1,7 +1,7 @@
-package com.example.project.data.repository
+package org.example.project.data.repository
 
-import com.example.project.data.Horas
-import com.example.project.RetrofitClient
+import org.example.project.data.Horas
+import org.example.project.RetrofitClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

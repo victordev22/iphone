@@ -1,4 +1,4 @@
-package com.example.project.view
+package org.example.project.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,10 +27,10 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.project.AuthViewModel
-import com.example.project.HomeViewModel
-import com.example.project.HorasUiState
-import com.example.project.navigation.AppScreens
+import org.example.project.AuthViewModel
+import org.example.project.HomeViewModel
+import org.example.project.HorasUiState
+import org.example.project.navigation.AppScreens
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 

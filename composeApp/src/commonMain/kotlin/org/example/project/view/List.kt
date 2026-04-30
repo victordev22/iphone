@@ -1,4 +1,4 @@
-package com.example.project.view
+package org.example.project.view
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -41,9 +41,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.project.RetrofitClient
-import com.example.project.data.Horas
-import com.example.project.navigation.AppScreens
+import org.example.project.RetrofitClient
+import org.example.project.data.Horas
+import org.example.project.navigation.AppScreens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
