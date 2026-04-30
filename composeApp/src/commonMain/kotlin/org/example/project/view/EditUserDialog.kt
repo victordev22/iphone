@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package org.example.project.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,7 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.controlh.data.UserFull
+import org.example.project.data.UserFull
 
 @Composable
 fun EditUserDialog(

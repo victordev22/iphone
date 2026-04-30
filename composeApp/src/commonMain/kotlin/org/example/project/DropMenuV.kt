@@ -1,4 +1,4 @@
-package com.example.controlh
+package org.example.project
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package org.example.project.view
 
 
 import androidx.compose.material3.Scaffold
@@ -12,8 +12,8 @@ import androidx.compose.runtime.getValue
 
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.controlh.AuthViewModel
-import com.example.controlh.navigation.AppScreens
+import org.example.project.AuthViewModel
+import org.example.project.navigation.AppScreens
 import androidx.compose.material3.ExperimentalMaterial3Api
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package org.example.project.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController // For preview
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TextField
-import com.example.controlh.navigation.AppScreens // Assuming AppScreens is defined here
+import org.example.project.navigation.AppScreens // Assuming AppScreens is defined here
 
 
 

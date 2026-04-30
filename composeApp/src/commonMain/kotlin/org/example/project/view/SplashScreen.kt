@@ -1,5 +1,5 @@
 // File: com/example/controlh/view/SplashScreen.kt
-package com.example.controlh.view
+package org.example.project.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.controlh.AuthViewModel
-import com.example.controlh.navigation.AppScreens
+import org.example.project.AuthViewModel
+import org.example.project.navigation.AppScreens
 import kotlinx.coroutines.delay
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package org.example.project.view
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState

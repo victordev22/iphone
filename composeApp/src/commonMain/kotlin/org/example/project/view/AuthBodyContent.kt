@@ -1,4 +1,4 @@
-package com.example.controlh.view
+package org.example.project.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -32,7 +32,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.controlh.AuthViewModel
+import org.example.project.AuthViewModel
 
 @Composable
 fun AuthBodyContent(navController: NavController, viewModel: AuthViewModel, paddingValues: PaddingValues) {

@@ -1,2 +1,2 @@
-package com.example.controlh.view
+package org.example.project.view
 
