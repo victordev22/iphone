@@ -1,4 +1,4 @@
-package com.example.controlh.ui.theme
+package org.example.project.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -7,15 +7,15 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = org.example.project.theme.Purple80,
+    secondary = org.example.project.theme.PurpleGrey80,
+    tertiary = org.example.project.theme.Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = org.example.project.theme.Purple40,
+    secondary = org.example.project.theme.PurpleGrey40,
+    tertiary = org.example.project.theme.Pink40
 )
 
 @Composable

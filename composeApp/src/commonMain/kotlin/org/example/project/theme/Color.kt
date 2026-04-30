@@ -1,4 +1,4 @@
-package com.example.controlh.ui.theme
+package org.example.project.theme
 
 import androidx.compose.ui.graphics.Color
 

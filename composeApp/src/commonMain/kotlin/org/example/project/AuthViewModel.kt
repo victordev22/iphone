@@ -1,14 +1,14 @@
-package com.example.controlh
+package org.example.project
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.example.controlh.data.LoginRequest
-import com.example.controlh.data.SignupRequest
-import com.example.controlh.data.User
-import com.example.controlh.navigation.AppScreens
-import com.example.controlh.data.Role
-import com.example.controlh.data.UserFull
+import org.example.project.data.LoginRequest
+import org.example.project.data.SignupRequest
+import org.example.project.data.User
+import org.example.project.navigation.AppScreens
+import org.example.project.data.Role
+import org.example.project.data.UserFull
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

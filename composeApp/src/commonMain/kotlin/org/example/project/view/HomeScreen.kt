@@ -10,30 +10,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.material3.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -135,7 +122,7 @@ fun HomeScreen(
         if (userHoursToday != null) {
             val startInstant = parseDateTime(userHoursToday!!.hora_encendido)
             if (startInstant != null) {
-                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: Clock.System.now()
+                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: kotlinx.datetime.Clock.System.now()
                 val durationMillis = endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()
                 formatMillisToTime(durationMillis)
             } else "00:00:00"
@@ -333,16 +320,14 @@ fun BottomNavigationBar(navController: NavController, authViewModel: AuthViewMod
         NavigationBarItem(
             selected = false,
             onClick = { authViewModel.logout(navController) },
-            icon = { Icon(Icons.Default.ExitToApp, contentDescription = "Logout") },
+            icon = { Icon(Icons.Default.ExitToApp, contentDescription = "Salir") },
             label = { Text("Salir") }
         )
     }
 }
 
-// Placeholder for UsageLimitProgress if not available
 @Composable
 fun UsageLimitProgress(usedMinutes: Int, maxMinutes: Int, label: String, canvasSize: androidx.compose.ui.unit.Dp) {
-    // Basic implementation to avoid compile errors if the real one isn't imported correctly
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         CircularProgressIndicator(
             progress = (usedMinutes.toFloat() / maxMinutes.toFloat()).coerceIn(0f, 1f),

@@ -1,9 +1,9 @@
-package com.example.controlh
+package org.example.project
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.controlh.data.repository.ControlRepository
-import com.example.controlh.view.UserPC
+import org.example.project.data.repository.ControlRepository
+import org.example.project.view.UserPC
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -60,13 +60,11 @@ class ControlViewModel(
     }
 
     private fun fetchInitialPowerState() {
-        // Temporary: Should get current user from AuthViewModel instead of MyApp
         viewModelScope.launch {
             _uiState.update { it.copy(isConnecting = true) }
             val result = controlRepository.listaHoras()
 
             if (result.isSuccess) {
-                // For now, we'll just check if there's any active PC since we don't have MyApp.currentUser here anymore
                 val isPCFound = result.getOrNull()?.any { it.hora_apagado == null } ?: false
                 println("PC Status Check: isPCFound=$isPCFound")
                 _uiState.update { it.copy(isPoweredOn = isPCFound, isConnecting = false) }

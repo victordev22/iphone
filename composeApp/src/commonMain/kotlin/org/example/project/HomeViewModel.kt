@@ -1,9 +1,9 @@
-package com.example.controlh
+package org.example.project
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.controlh.data.Horas
-import com.example.controlh.data.repository.ControlRepository
+import org.example.project.data.Horas
+import org.example.project.data.repository.ControlRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -67,14 +67,11 @@ class HomeViewModel(
     private fun parseDateTime(dateTimeString: String?): Instant? {
         if (dateTimeString == null) return null
         return try {
-            // Attempt to parse ISO format first
             Instant.parse(dateTimeString)
         } catch (e: Exception) {
-            // Fallback: If the string is like "2023-10-27 10:00:00", replace space with T
             try {
                 Instant.parse(dateTimeString.replace(" ", "T") + "Z")
             } catch (e2: Exception) {
-                println("Failed to parse date: $dateTimeString")
                 null
             }
         }
@@ -91,7 +88,7 @@ class HomeViewModel(
     private fun calculateWeeklyWorkDayUsage(horasList: List<Horas>, userId: String) {
         val usageMap = mutableMapOf<String, Long>()
         val tz = TimeZone.currentSystemDefault()
-        val now = Clock.System.now()
+        val now = kotlinx.datetime.Clock.System.now()
         val today = now.toLocalDateTime(tz).date
         val currentDayOfWeekValue = today.dayOfWeek.isoDayNumber
 
@@ -130,7 +127,6 @@ class HomeViewModel(
             dayValue <= currentDayOfWeekValue
         }
 
-        println("Resumen semanal filtrado: $filteredUsageMap")
         _weeklyUsageSummary.value = filteredUsageMap
     }
 
@@ -142,12 +138,11 @@ class HomeViewModel(
             _currentUserHours.value = null
             _weeklyUsageSummary.value = emptyMap()
 
-            val result: Result<List<Horas>> = controlRepository.listaHoras()
+            val result = controlRepository.listaHoras()
 
             result.fold(
                 onSuccess = { horasList ->
-                    println("Horas cargadas: ${horasList.size} elementos.")
-                    val now = Clock.System.now()
+                    val now = kotlinx.datetime.Clock.System.now()
                     val matchingEntry = horasList.find { horas ->
                         val isUserMatch = horas.user == currentUserId
                         val startInstant = parseDateTime(horas.hora_encendido)
@@ -159,7 +154,6 @@ class HomeViewModel(
                 },
                 onFailure = { e ->
                     val error = "Error al cargar las horas: ${e.message}"
-                    println(error)
                     _horasUiState.value = HorasUiState.Error(error)
                     _currentUserHours.value = null
                     _weeklyUsageSummary.value = emptyMap()

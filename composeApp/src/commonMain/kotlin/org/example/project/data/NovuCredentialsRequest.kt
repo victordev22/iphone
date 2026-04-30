@@ -1,11 +1,13 @@
 package com.example.controlh.data
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
+@Serializable
 data class NovuCredentialsRequest(
-    @SerializedName("providerId")
+    @SerialName("providerId")
     val providerId: String,
 
-    @SerializedName("deviceTokens")
+    @SerialName("deviceTokens")
     val deviceTokens: List<String>
 )

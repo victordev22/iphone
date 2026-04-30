@@ -1,4 +1,4 @@
-package com.example.controlh.navigation
+package org.example.project.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
@@ -6,13 +6,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.controlh.view.HomeScreen
-import com.example.controlh.view.Login
-import com.example.controlh.view.SplashScreen
-import com.example.controlh.view.AuthScreen
-import com.example.controlh.view.DetailScreen
-import com.example.controlh.view.ListScreen
-import com.example.controlh.view.ListUser
+import org.example.project.view.HomeScreen
+import org.example.project.view.Login
+import org.example.project.view.SplashScreen
+import org.example.project.view.AuthScreen
+import org.example.project.view.DetailScreen
+import org.example.project.view.ListScreen
+import org.example.project.view.ListUser
 
 @Composable
 fun AppNavigation(){
@@ -39,15 +39,12 @@ fun AppNavigation(){
             ListUser(navController)
         }
 
-        // NUEVA RUTA DE DETALLE
         composable(
             route = AppScreens.Detail.route,
             arguments = listOf(navArgument("id") { type = NavType.IntType })
         ) { backStackEntry ->
             val id = backStackEntry.arguments?.getInt("id") ?: 0
-            DetailScreen(id = id, navController = navController) // Asegúrate de que DetailScreen reciba Int? o Int
+            DetailScreen(id = id, navController = navController)
         }
-
     }
-
 }

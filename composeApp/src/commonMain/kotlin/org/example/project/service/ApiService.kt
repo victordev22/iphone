@@ -1,8 +1,8 @@
-package com.example.controlh.service
+package org.example.project.service
 
-import com.example.controlh.Constants
-import com.example.controlh.KtorClient
-import com.example.controlh.data.*
+import org.example.project.Constants
+import org.example.project.KtorClient
+import org.example.project.data.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -13,25 +13,29 @@ class ApiService {
 
     // Auth methods
     suspend fun login(request: LoginRequest): JwtResponse {
-        return client.post("${Constants.BASE_AUTH}/auth/signin") {
+        return client.post("${Constants.BASE_AUTH}auth/signin") {
             contentType(ContentType.Application.Json)
             setBody(request)
         }.body()
     }
 
     suspend fun signup(request: SignupRequest): String {
-        return client.post("${Constants.BASE_AUTH}/auth/signup") {
+        return client.post("${Constants.BASE_AUTH}auth/signup") {
             contentType(ContentType.Application.Json)
             setBody(request)
         }.bodyAsText()
     }
 
     suspend fun getCurrentUser(): User {
-        return client.get("${Constants.BASE_AUTH}/auth/me").body()
+        return client.get("${Constants.BASE_AUTH}auth/me").body()
     }
 
     suspend fun getRawCurrentUserJson(): UserFull {
-        return client.get("${Constants.BASE_AUTH}/auth/me").body()
+        return client.get("${Constants.BASE_AUTH}auth/me").body()
+    }
+    
+    suspend fun getProtectedResource(): String {
+        return client.get("${Constants.BASE_AUTH}api/protected-resource").bodyAsText()
     }
 
     // Control methods
@@ -51,18 +55,18 @@ class ApiService {
 
     // User Management
     suspend fun getAllUsersFull(): List<UserFull> {
-        return client.get("${Constants.BASE_AUTH}api/users").body() // Verify this endpoint
+        return client.get("${Constants.BASE_AUTH}api/users").body()
     }
 
     suspend fun updateUser(id: Int, user: UserFull): MessageResponse {
-        return client.put("${Constants.BASE_AUTH}/update/$id") {
+        return client.put("${Constants.BASE_AUTH}update/$id") {
             contentType(ContentType.Application.Json)
             setBody(user)
         }.body()
     }
 
     suspend fun updateUserRole(email: String, roleRequest: RoleUpdateRequest): MessageResponse {
-        return client.put("${Constants.BASE_AUTH}/update/role/$email") {
+        return client.put("${Constants.BASE_AUTH}update/role/$email") {
             contentType(ContentType.Application.Json)
             setBody(roleRequest)
         }.body()

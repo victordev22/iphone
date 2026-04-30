@@ -1,6 +1,6 @@
-package com.example.controlh
+package org.example.project
 
-import com.example.controlh.data.Horas
+import org.example.project.data.Horas
 
 sealed class HorasUiState {
     object Initial : HorasUiState()

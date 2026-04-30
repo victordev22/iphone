@@ -1,4 +1,4 @@
-package com.example.controlh
+package org.example.project
 
 object Constants {
     const val BASE_URL = "https://control.meta4bim.com/"

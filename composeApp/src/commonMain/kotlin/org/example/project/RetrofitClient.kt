@@ -1,10 +1,7 @@
-package com.example.controlh
+package org.example.project
 
-import com.example.controlh.service.ApiService
-import com.example.controlh.data.*
-import io.ktor.client.call.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
+import org.example.project.service.ApiService
+import org.example.project.data.*
 
 /**
  * A bridge to keep existing code working while using Ktor under the hood.
@@ -20,6 +17,7 @@ object RetrofitClient {
         suspend fun signup(request: SignupRequest) = wrap { api.signup(request) }
         suspend fun getCurrentUser() = wrap { api.getCurrentUser() }
         suspend fun getRawCurrentUserJson() = wrap { api.getRawCurrentUserJson() }
+        suspend fun getProtectedResource() = wrap { api.getProtectedResource() }
         suspend fun getHoras() = wrap { api.getHoras() }
         suspend fun getHoraById(id: Int) = wrap { api.getHoraById(id) }
         suspend fun sendCommand(command: String) = wrap { api.sendCommand(command) }
