@@ -53,6 +53,11 @@ kotlin {
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.client.auth)
             implementation(libs.kotlinx.datetime)
+
+
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10") // Navegación KMP
+            implementation("org.jetbrains.compose.components:components-resources:1.6.11")
+            implementation("org.jetbrains.compose.material:material-icons-extended:1.6.11") // Para Icons.Default...
         }
 
         commonTest.dependencies {
