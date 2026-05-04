@@ -37,7 +37,7 @@ import kotlin.time.Duration.Companion.milliseconds
 
 var UserPC: String = ""
 
-fun getCurrentTime(): Instant = Clock.System.now()
+fun getCurrentTime(): Instant = KtClock.System.now()
 
 private fun parseDateTime(dateTimeString: String?): Instant? {
     if (dateTimeString == null) return null

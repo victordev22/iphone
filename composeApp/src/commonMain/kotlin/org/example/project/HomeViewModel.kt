@@ -12,7 +12,7 @@ import kotlinx.datetime.Clock as KtClock
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 
-fun getCurrentTime(): Instant = Clock.System.now()
+fun getCurrentTime(): Instant = KtClock.System.now()
 
 class HomeViewModel(
     private val controlRepository: ControlRepository = ControlRepository()) : ViewModel() {
