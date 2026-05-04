@@ -31,13 +31,15 @@ import org.example.project.AuthViewModel
 import org.example.project.HomeViewModel
 import org.example.project.HorasUiState
 import org.example.project.navigation.AppScreens
-import kotlinx.datetime.Clock as KtClock
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 
 var UserPC: String = ""
 
-fun getCurrentTime(): Instant = KtClock.System.now()
+private val clock: Clock get() = Clock.System
+fun getCurrentTime(): Instant = clock.now()
 
 private fun parseDateTime(dateTimeString: String?): Instant? {
     if (dateTimeString == null) return null
