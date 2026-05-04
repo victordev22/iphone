@@ -15,9 +15,13 @@ import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 
 
-val Clock.Companion.SafeSystem: Clock get() = Clock.System
+fun getSystemNow(): Instant {
+    // Esta línea "engaña" al compilador de iOS al no usar el encadenamiento Clock.System
+    val clockInstance: Clock = Clock.System
+    return clockInstance.now()
+}
 
-fun getCurrentTime(): Instant = Clock.SafeSystem.now()
+
 
 class HomeViewModel(
     private val controlRepository: ControlRepository = ControlRepository()) : ViewModel() {
@@ -98,7 +102,7 @@ class HomeViewModel(
         val usageMap = mutableMapOf<String, Long>()
         val tz = TimeZone.currentSystemDefault()
         //val now = kotlinx.datetime.Clock.System.now()
-        val now = getCurrentTime()
+        val now = getSystemNow()
         val today = now.toLocalDateTime(tz).date
         val currentDayOfWeekValue = today.dayOfWeek.isoDayNumber
 
@@ -155,7 +159,7 @@ class HomeViewModel(
             result.fold(
                 onSuccess = { horasList ->
                     //val now = kotlinx.datetime.Clock.System.now()
-                    val now = getCurrentTime()
+                    val now = getSystemNow()
                     val matchingEntry = horasList.find { horas ->
                         val isUserMatch = horas.user == currentUserId
                         val startInstant = parseDateTime(horas.hora_encendido)

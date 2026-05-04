@@ -40,9 +40,15 @@ import kotlin.time.Duration.Companion.milliseconds
 var UserPC: String = ""
 
 
-val Clock.Companion.SafeSystem: Clock get() = Clock.System
+fun getSystemNow(): Instant {
+    // Esta línea "engaña" al compilador de iOS al no usar el encadenamiento Clock.System
+    val clockInstance: Clock = Clock.System
+    return clockInstance.now()
+}
 
-fun getCurrentTime(): Instant = Clock.SafeSystem.now()
+
+
+
 
 private fun parseDateTime(dateTimeString: String?): Instant? {
     if (dateTimeString == null) return null
@@ -132,7 +138,7 @@ fun HomeScreen(
         if (userHoursToday != null) {
             val startInstant = parseDateTime(userHoursToday!!.hora_encendido)
             if (startInstant != null) {
-                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: getCurrentTime()
+                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: getSystemNow()
                 val durationMillis = endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()
                 formatMillisToTime(durationMillis)
             } else "00:00:00"
