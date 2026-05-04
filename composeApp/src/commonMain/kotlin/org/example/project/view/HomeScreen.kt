@@ -40,7 +40,7 @@ import kotlin.time.Duration.Companion.milliseconds
 var UserPC: String = ""
 
 
-
+expect fun getSystemNow(): Instant
 
 
 private fun parseDateTime(dateTimeString: String?): Instant? {

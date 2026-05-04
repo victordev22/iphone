@@ -14,7 +14,7 @@ import kotlinx.datetime.Instant
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 
-
+expect fun getSystemNow(): Instant
 
 class HomeViewModel(
     private val controlRepository: ControlRepository = ControlRepository()) : ViewModel() {
