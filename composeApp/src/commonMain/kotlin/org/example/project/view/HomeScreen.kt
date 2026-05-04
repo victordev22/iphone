@@ -122,7 +122,7 @@ fun HomeScreen(
         if (userHoursToday != null) {
             val startInstant = parseDateTime(userHoursToday!!.hora_encendido)
             if (startInstant != null) {
-                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: kotlinx.datetime.Clock.System.now()
+                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: Clock.System.now()
                 val durationMillis = endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()
                 formatMillisToTime(durationMillis)
             } else "00:00:00"
