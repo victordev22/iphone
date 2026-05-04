@@ -8,13 +8,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock.System as ClockObject
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 
-private val clock: Clock get() = Clock.System
-fun getCurrentTime(): Instant = clock.now()
+
+fun getCurrentTime(): Instant = ClockObject.now()
 
 class HomeViewModel(
     private val controlRepository: ControlRepository = ControlRepository()) : ViewModel() {
