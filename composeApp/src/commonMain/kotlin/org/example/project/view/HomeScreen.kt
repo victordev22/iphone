@@ -37,6 +37,8 @@ import kotlin.time.Duration.Companion.milliseconds
 
 var UserPC: String = ""
 
+fun getCurrentTime(): Instant = Clock.System.now()
+
 private fun parseDateTime(dateTimeString: String?): Instant? {
     if (dateTimeString == null) return null
     return try {
@@ -50,7 +52,7 @@ private fun parseDateTime(dateTimeString: String?): Instant? {
     }
 }
 
-private val clockSource = KtClock.System
+
 
 fun formatMillisToTime(millis: Long): String {
     if (millis < 0) return "00:00:00"
@@ -125,7 +127,7 @@ fun HomeScreen(
         if (userHoursToday != null) {
             val startInstant = parseDateTime(userHoursToday!!.hora_encendido)
             if (startInstant != null) {
-                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: clockSource.now()
+                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: getCurrentTime()
                 val durationMillis = endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()
                 formatMillisToTime(durationMillis)
             } else "00:00:00"

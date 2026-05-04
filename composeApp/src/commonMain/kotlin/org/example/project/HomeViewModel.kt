@@ -12,10 +12,12 @@ import kotlinx.datetime.Clock as KtClock
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
 
+fun getCurrentTime(): Instant = Clock.System.now()
+
 class HomeViewModel(
     private val controlRepository: ControlRepository = ControlRepository()) : ViewModel() {
 
-    private val clockSource = KtClock.System
+
     private val _pcState = MutableStateFlow(false)
     val pcState: StateFlow<Boolean> = _pcState.asStateFlow()
 
@@ -91,7 +93,7 @@ class HomeViewModel(
         val usageMap = mutableMapOf<String, Long>()
         val tz = TimeZone.currentSystemDefault()
         //val now = kotlinx.datetime.Clock.System.now()
-        val now = clockSource.now()
+        val now = getCurrentTime()
         val today = now.toLocalDateTime(tz).date
         val currentDayOfWeekValue = today.dayOfWeek.isoDayNumber
 
@@ -148,7 +150,7 @@ class HomeViewModel(
             result.fold(
                 onSuccess = { horasList ->
                     //val now = kotlinx.datetime.Clock.System.now()
-                    val now = clockSource.now()
+                    val now = getCurrentTime()
                     val matchingEntry = horasList.find { horas ->
                         val isUserMatch = horas.user == currentUserId
                         val startInstant = parseDateTime(horas.hora_encendido)
