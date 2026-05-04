@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.datetime.*
+import kotlinx.datetime.Clock as KtClock
 import kotlin.time.Duration.Companion.milliseconds
 
 class HomeViewModel(
@@ -89,7 +89,7 @@ class HomeViewModel(
         val usageMap = mutableMapOf<String, Long>()
         val tz = TimeZone.currentSystemDefault()
         //val now = kotlinx.datetime.Clock.System.now()
-        val now = Clock.System.now()
+        val now = KtClock.System.now()
         val today = now.toLocalDateTime(tz).date
         val currentDayOfWeekValue = today.dayOfWeek.isoDayNumber
 
@@ -146,7 +146,7 @@ class HomeViewModel(
             result.fold(
                 onSuccess = { horasList ->
                     //val now = kotlinx.datetime.Clock.System.now()
-                    val now = Clock.System.now()
+                    val now = KtClock.System.now()
                     val matchingEntry = horasList.find { horas ->
                         val isUserMatch = horas.user == currentUserId
                         val startInstant = parseDateTime(horas.hora_encendido)

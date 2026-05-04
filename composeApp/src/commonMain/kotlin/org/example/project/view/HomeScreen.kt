@@ -31,7 +31,7 @@ import org.example.project.AuthViewModel
 import org.example.project.HomeViewModel
 import org.example.project.HorasUiState
 import org.example.project.navigation.AppScreens
-import kotlinx.datetime.*
+import kotlinx.datetime.Clock as KtClock
 import kotlin.time.Duration.Companion.milliseconds
 
 var UserPC: String = ""
@@ -122,7 +122,7 @@ fun HomeScreen(
         if (userHoursToday != null) {
             val startInstant = parseDateTime(userHoursToday!!.hora_encendido)
             if (startInstant != null) {
-                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: Clock.System.now()
+                val endInstant = parseDateTime(userHoursToday!!.hora_apagado) ?: KtClock.System.now()
                 val durationMillis = endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()
                 formatMillisToTime(durationMillis)
             } else "00:00:00"
