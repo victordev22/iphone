@@ -89,8 +89,8 @@ class AuthViewModel() : ViewModel() {
                         _errorMessage.value = "Login successful, but no JWT received."
                     }
                 } else {
-                    _errorMessage.value = response.errorBody()?.string() ?: "Login failed!"
-                    println("Login Error: ${response.errorBody()?.string()}")
+                    _errorMessage.value = "Error de inicio de sesión (${response.code()})": "Login failed!"
+                    println("Login Error: ${response.code()}")
                 }
             } catch (e: Exception) {
                 _errorMessage.value = "Network error: ${e.message}"
@@ -111,12 +111,12 @@ class AuthViewModel() : ViewModel() {
                 val response = RetrofitClient.instanceA.signup(request)
 
                 if (response.isSuccessful) {
-                    val rawMessage = response.body()?.string() ?: "Signup successful!"
+                    val rawMessage = "${response.code()}: "Signup successful!"
                     _successMessage.value = rawMessage
                     println("Signup Success: $rawMessage")
                     _isLoginScreen.value = true
                 } else {
-                    val errorMsg = response.errorBody()?.string() ?: "Signup failed!"
+                    val errorMsg = "Error ${response.code()}: "Signup failed!"
                     _errorMessage.value = errorMsg
                     println("Signup Error: $errorMsg")
                 }

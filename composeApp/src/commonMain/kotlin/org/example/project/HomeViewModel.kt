@@ -112,7 +112,8 @@ class HomeViewModel(
                     if (isSameWeek(today, startDate)) {
                         val endInstant = parseDateTime(horas.hora_apagado) ?: now
                         val duration = (endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()).coerceAtLeast(0L)
-                        usageMap[dayName] = usageMap.getOrDefault(dayName, 0L) + duration
+                        val currentDuration = usageMap[dayName] ?: 0L
+                        usageMap[dayName] = currentDuration + duration
                     }
                 }
             }
