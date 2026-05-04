@@ -82,19 +82,17 @@ class AuthViewModel() : ViewModel() {
                     jwtResponse?.let {
                         TokenManager.saveToken(it.token)
                         _isAuthenticated.value = true
-                        _successMessage.value = "${it.email} signed in successfully!"
-                        println("Login Success. Token saved.")
+                        _successMessage.value = "Signed in successfully!"
                         fetchCurrentUser()
                     } ?: run {
                         _errorMessage.value = "Login successful, but no JWT received."
                     }
                 } else {
-                    _errorMessage.value = "Error de inicio de sesión (${response.code()})": "Login failed!"
-                    println("Login Error: ${response.code()}")
+                    // CORREGIDO: Texto limpio sin errores de sintaxis
+                    _errorMessage.value = "Error de inicio de sesión (${response.code()})"
                 }
             } catch (e: Exception) {
                 _errorMessage.value = "Network error: ${e.message}"
-                println("Login Exception: ${e.message}")
             } finally {
                 _isLoading.value = false
             }
@@ -111,18 +109,15 @@ class AuthViewModel() : ViewModel() {
                 val response = RetrofitClient.instanceA.signup(request)
 
                 if (response.isSuccessful) {
-                    val rawMessage = "${response.code()}: "Signup successful!"
-                    _successMessage.value = rawMessage
-                    println("Signup Success: $rawMessage")
+                    // CORREGIDO: Sintaxis de string limpia
+                    _successMessage.value = "Signup successful!"
                     _isLoginScreen.value = true
                 } else {
-                    val errorMsg = "Error ${response.code()}: "Signup failed!"
-                    _errorMessage.value = errorMsg
-                    println("Signup Error: $errorMsg")
+                    // CORREGIDO: Sintaxis de string limpia
+                    _errorMessage.value = "Signup failed (${response.code()})"
                 }
             } catch (e: Exception) {
                 _errorMessage.value = "Network error: ${e.message}"
-                println("Signup Exception: ${e.message}")
             } finally {
                 _isLoading.value = false
             }
