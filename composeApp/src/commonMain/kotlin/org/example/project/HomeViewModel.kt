@@ -112,6 +112,7 @@ class HomeViewModel(
                     if (isSameWeek(today, startDate)) {
                         val endInstant = parseDateTime(horas.hora_apagado) ?: now
                         val duration = (endInstant.toEpochMilliseconds() - startInstant.toEpochMilliseconds()).coerceAtLeast(0L)
+                        // Forma segura de actualizar el mapa para iOS
                         val currentDuration = usageMap[dayName] ?: 0L
                         usageMap[dayName] = currentDuration + duration
                     }
