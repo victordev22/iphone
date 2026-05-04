@@ -1,7 +1,12 @@
 package org.example.project
 
-import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import platform.Foundation.NSDate
+import platform.Foundation.timeIntervalSince1970
 
-// Aquí iOS sí suele aceptar Clock.System si está aislado en su propio sourceSet
-actual fun getSystemNow(): Instant = Clock.System.now()
+actual fun getSystemNow(): Instant {
+    // Obtenemos los segundos desde 1970 usando la API nativa de Apple (iOS)
+    val seconds = NSDate().timeIntervalSince1970
+    // Convertimos a milisegundos y creamos el Instant de Kotlin
+    return Instant.fromEpochMilliseconds((seconds * 1000).toLong())
+}
