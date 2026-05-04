@@ -31,7 +31,7 @@ import org.example.project.AuthViewModel
 import org.example.project.HomeViewModel
 import org.example.project.HorasUiState
 import org.example.project.navigation.AppScreens
-import kotlinx.datetime.Clock.System as ClockObject
+
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.*
@@ -40,7 +40,9 @@ import kotlin.time.Duration.Companion.milliseconds
 var UserPC: String = ""
 
 
-fun getCurrentTime(): Instant = ClockObject.now()
+val Clock.Companion.SafeSystem: Clock get() = Clock.System
+
+fun getCurrentTime(): Instant = Clock.SafeSystem.now()
 
 private fun parseDateTime(dateTimeString: String?): Instant? {
     if (dateTimeString == null) return null
