@@ -40,13 +40,6 @@ import kotlin.time.Duration.Companion.milliseconds
 var UserPC: String = ""
 
 
-fun getSystemNow(): Instant {
-    // Esta línea "engaña" al compilador de iOS al no usar el encadenamiento Clock.System
-    val clockInstance: Clock = Clock.System
-    return clockInstance.now()
-}
-
-
 
 
 

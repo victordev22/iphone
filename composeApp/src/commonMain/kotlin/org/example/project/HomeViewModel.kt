@@ -9,17 +9,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-import kotlinx.datetime.Clock
+//import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.*
 import kotlin.time.Duration.Companion.milliseconds
-
-
-fun getSystemNow(): Instant {
-    // Esta línea "engaña" al compilador de iOS al no usar el encadenamiento Clock.System
-    val clockInstance: Clock = Clock.System
-    return clockInstance.now()
-}
 
 
 
